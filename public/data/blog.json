@@ -10,15 +10,6 @@
     "featured": true
   },
   {
-    "slug": "mt-resiliencia-mental",
-    "title": "Meditación Trascendental y Resiliencia Mental",
-    "excerpt": "La práctica regular de la MT activa respuestas neurológicas que reducen la reactividad al estrés y aumentan la capacidad de recuperación emocional.",
-    "category": "noticias-positivas",
-    "coverImage": "/images/blog/resiliencia-mental.jpg",
-    "publishedAt": "2025-02-20",
-    "readingTime": 5
-  },
-  {
     "slug": "mt-cambios-cerebro",
     "title": "Meditación y Cambios en el Cerebro",
     "excerpt": "Los estudios con EEG muestran que durante la MT se produce coherencia cerebral global — un patrón de ondas alfa sincronizadas en todo el córtex que no ocurre en ningún otro estado.",
@@ -37,66 +28,75 @@
     "readingTime": 8
   },
   {
-    "slug": "deportistas-artistas-lideres-mt",
-    "title": "Deportistas, Artistas y Líderes que practican Meditación Trascendental",
-    "excerpt": "De Ray Dalio a David Lynch, de Novak Djokovic a Oprah Winfrey — las personas de mayor rendimiento en el mundo comparten esta práctica.",
-    "category": "noticias-positivas",
-    "coverImage": "/images/blog/lideres-mt.jpg",
-    "publishedAt": "2024-11-18",
-    "readingTime": 4
-  },
-  {
-    "slug": "mt-insomnio-ansiedad-ciencia",
-    "title": "Meditación Trascendental, Insomnio y Ansiedad: lo que revela la ciencia moderna",
-    "excerpt": "Una revisión de los estudios clínicos más recientes (2022–2025) sobre el impacto de la MT en el sueño, la ansiedad generalizada y el bienestar emocional.",
-    "category": "noticias-positivas",
-    "coverImage": "/images/blog/insomnio-ansiedad.jpg",
-    "publishedAt": "2024-10-30",
-    "readingTime": 6
-  },
-  {
-    "slug": "colombia-prohibicion-mineria-petroleo-amazonia",
-    "title": "Colombia se convierte en el primer país en prohibir la minería y el petróleo en la Amazonía",
-    "excerpt": "En un hito histórico de conservación ambiental, Colombia ha decretado la prohibición absoluta de toda actividad petrolera y minera en la región de la Amazonía, protegiendo activamente millones de hectáreas de bosque tropical y fuentes hídricas.",
-    "category": "noticias-positivas",
-    "coverImage": "/images/hero-blog.jpeg",
-    "publishedAt": "2026-03-14",
-    "readingTime": 2
-  },
-  {
-    "slug": "concesion-forestal-amazonas-campesinos",
-    "title": "Entregan primera concesión forestal para aprovechamiento sostenible en la Amazonía",
-    "excerpt": "El Ministerio de Ambiente ha entregado la primera concesión forestal para que familias campesinas co-administren de forma sostenible 23.000 hectáreas de bosque en la Amazonía. Una apuesta comunitaria que frena la deforestación y estimula la economía forestal sostenible.",
-    "category": "noticias-positivas",
-    "coverImage": "/images/hero-blog.jpeg",
-    "publishedAt": "2026-05-08",
-    "readingTime": 2
-  },
-  {
-    "slug": "inversion-mil-millones-parques-solares-colombia",
-    "title": "Fondo internacional invertirá US$1.000 millones en infraestructura solar en el país",
-    "excerpt": "Un fondo de inversión latinoamericano anunció la inyección de 1.000 millones de dólares destinados exclusivamente a la construcción y puesta en marcha de parques solares en el territorio nacional, acelerando la transición energética limpia.",
+    "slug": "boletin-salud-bienestar-colombia",
+    "title": "Salud y Bienestar Social: Boletines de Noticias Positivas",
+    "excerpt": "• Código Dorado: Protocolo nacional de atención inmediata en salud mental.\n• Medicamento VIH: Licencia obligatoria reduce precio de US$200 a US$6.\n• Complejo San Juan de Dios: Restauración de 24 edificios en Bogotá para la atención de adultos mayores.\n• Nuevo Sello Nutricional: Combate frontal a la obesidad con rotulado de ultraprocesados.\n• Medellín Saludable: Convocatoria pública para control de ruido en zonas de entretenimiento.",
     "category": "noticias-positivas",
     "coverImage": "/images/hero-blog.jpeg",
     "publishedAt": "2026-05-08",
     "readingTime": 3
   },
   {
-    "slug": "denominacion-origen-mangostino-mariquita",
-    "title": "Otorgan Denominación de Origen al mangostino de Mariquita como sello de excelencia",
-    "excerpt": "La Superintendencia de Industria y Comercio otorgó la Denominación de Origen al mangostino cultivado en Mariquita, Tolima. Este reconocimiento exalta las propiedades únicas de esta súper fruta nacional, protegiendo y empoderando a las familias productoras locales.",
+    "slug": "boletin-medio-ambiente-biodiversidad-colombia",
+    "title": "Conservación de la Biodiversidad y Reforestación",
+    "excerpt": "• Amazonía Libre de Extractivismo: Hito mundial al prohibir toda minería y petróleo en la selva.\n• Concesión Forestal Campesina: Entrega de 23.000 hectáreas de bosque para su aprovechamiento comunitario sostenible.\n• Restauración en Cabo Tortuga: Recuperación costera integral frente a la erosión en Santa Marta.\n• Recuperación en Soacha: Inversión de $5.948 millones para recuperar 72 hectáreas en humedales Neuta y Tierra Blanca.\n• Protección en Risaralda: 35 cámaras trampa monitorean la danta de montaña en el Parque Ucumarí.",
     "category": "noticias-positivas",
     "coverImage": "/images/hero-blog.jpeg",
-    "publishedAt": "2026-04-29",
-    "readingTime": 2
+    "publishedAt": "2026-05-09",
+    "readingTime": 3
   },
   {
-    "slug": "complejo-universitario-san-juan-de-dios-salud",
-    "title": "Rehabilitan el complejo histórico San Juan de Dios para el cuidado de adultos mayores",
-    "excerpt": "Los 24 edificios del complejo universitario San Juan de Dios en Bogotá serán rehabilitados como un centro especializado de salud y bienestar integral para adultos mayores, devolviendo valor social a esta joya de la infraestructura médica.",
+    "slug": "boletin-transicion-energetica-sostenibilidad-colombia",
+    "title": "Transición Energética y Energías Limpias",
+    "excerpt": "• Inversión en Parques Solares: US$1.000 millones proyectados en infraestructura de energía solar.\n• Transición Justa: Científicos entregan ruta con 12 recomendaciones en Santa Marta.\n• Amoníaco Verde: Santa Marta recibe el primer buque ecológico del mundo libre de emisiones de CO2.\n• Descarbonización de Ecopetrol: Ahorros por $288.000 millones y reducción de 136.000 toneladas de CO2.\n• Electrificación de Transporte: Distribuidor automotriz reduce 400 toneladas de CO2 al fomentar movilidad eléctrica.",
     "category": "noticias-positivas",
     "coverImage": "/images/hero-blog.jpeg",
-    "publishedAt": "2026-04-24",
-    "readingTime": 2
+    "publishedAt": "2026-05-08",
+    "readingTime": 3
+  },
+  {
+    "slug": "boletin-economia-productividad-exportaciones-colombia",
+    "title": "Economía y Productividad: Crecimiento y Solidez Financiera",
+    "excerpt": "• Exportaciones en Alza: Crecimiento del 20,9% en marzo de 2026 (US$5.315 millones).\n• Flores de Exportación: 330 millones de flores colombianas adornaron el Día de la Madre en EE. UU.\n• Cacao en Expansión: Exportaciones de grano aumentaron un 59,9% interanual.\n• Inversión Extranjera Directa: Captación de US$831 millones en marzo, un incremento del 19%.\n• Remesas Históricas: Ingreso de remesas por US$3.346 millones en el primer trimestre, segundo más alto de la historia.",
+    "category": "noticias-positivas",
+    "coverImage": "/images/hero-blog.jpeg",
+    "publishedAt": "2026-05-09",
+    "readingTime": 3
+  },
+  {
+    "slug": "boletin-educacion-ciencia-tecnologia-colombia",
+    "title": "Educación y Ciencia: Innovación y Oportunidades Profesionales",
+    "excerpt": "• Prácticas Remuneradas: MinTrabajo habilita pasantías pagas para estudiantes técnicos y profesionales.\n• STEM y Clima: Fortalecimiento ambiental con 2.800 nuevos Centros de Interés en el país.\n• Créditos Educativos: Bogotá financia el 100% de la matrícula en 9 universidades.\n• IA en el Caribe: Universidad Simón Bolívar lanza el primer doctorado en Inteligencia Artificial.\n• Sierra Nevada: 1.400 jóvenes rurales inician formación técnica superior en sus propios colegios.",
+    "category": "noticias-positivas",
+    "coverImage": "/images/hero-blog.jpeg",
+    "publishedAt": "2026-05-08",
+    "readingTime": 3
+  },
+  {
+    "slug": "boletin-cultura-entretenimiento-reconocimiento-colombia",
+    "title": "Cultura, Arte y Reconocimiento de Marca País",
+    "excerpt": "• Canción Oficial de la Copa Mundial 2026: Shakira interpretará el tema oficial del mundial.\n• Patrimonio Recuperado: Colombia repatría más de 1.000 piezas arqueológicas desde el 2022.\n• Denominación de Origen: El mangostino de Mariquita, Tolima, recibe sello de origen nacional.\n• Rock al Parque 30 Años: Celebración histórica con lanzamientos literarios y vinilos conmemorativos.\n• Shakira en Río: Cifra récord de 2 millones de asistentes al concierto gratuito en la playa de Copacabana.",
+    "category": "noticias-positivas",
+    "coverImage": "/images/hero-blog.jpeg",
+    "publishedAt": "2026-05-09",
+    "readingTime": 3
+  },
+  {
+    "slug": "boletin-deporte-victorias-mundiales-colombia",
+    "title": "Hazañas Deportivas: Campeones Colombianos en el Mundo",
+    "excerpt": "• Patinaje de Velocidad: Colombia gana la International Cup en Italia con 18 medallas de oro.\n• Pesas Panamericano: Selección Colombia campeona en Panamá (16 oros, 10 platas, 12 bronces).\n• Récord en Chicamocha: Diego Molano cruza el Cañón con los ojos vendados sobre cuerda floja.\n• Récord en Jabalina: Dilan Graciano triunfa con medalla de oro en los Juegos Suramericanos.\n• Pesas Récord: Yeison López conquista Panamericano de Pesas e impone 3 récords mundiales.",
+    "category": "noticias-positivas",
+    "coverImage": "/images/hero-blog.jpeg",
+    "publishedAt": "2026-05-08",
+    "readingTime": 3
+  },
+  {
+    "slug": "boletin-justicia-paz-apoyo-social-colombia",
+    "title": "Construcción de Paz, Tierras Campesinas y Apoyo Social",
+    "excerpt": "• Restitución de Tierras: Entrega de finca de 1.450 hectáreas a 227 familias campesinas en Sucre.\n• Títulos de Propiedad: 100 familias afectadas por la violencia reciben títulos en Flor del Monte.\n• Tierras por la Paz: Agencia Nacional de Tierras entrega 600 has incautadas al narcotráfico en Risaralda.\n• Apoyo Social: MinAgricultura distribuye 4 millones de huevos a familias vulnerables.\n• Reconciliación: 29 integrantes del Clan del Golfo se concentran en zonas temporales para desmovilización.",
+    "category": "noticias-positivas",
+    "coverImage": "/images/hero-blog.jpeg",
+    "publishedAt": "2026-05-09",
+    "readingTime": 3
   }
 ]

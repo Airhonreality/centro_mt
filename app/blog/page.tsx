@@ -123,31 +123,61 @@ export default async function BlogPage() {
         </div>
       </div>
 
-      {/* ─── Barra de Navegación por Anclas Locales (Sticky) ─── */}
-      <div className="bg-white/95 backdrop-blur-md border-b border-azul-profundo/[0.06] sticky top-16 z-20 transition-all duration-300">
-        <div className="container-site">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-4 pb-2">
-            <div className="flex items-center gap-2">
+      {/* ─── Zona de Transición Premium / Buffer Visual Ampliado (No Sticky) ─── */}
+      <section className="bg-white border-b border-azul-profundo/[0.06] py-16 md:py-24 transition-all duration-300">
+        <div className="container-site max-w-4xl mx-auto text-center space-y-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-azul-claro animate-pulse" />
-              <p className="text-[10px] font-sans font-bold tracking-[0.15em] text-azul-claro uppercase">
-                Secciones del Blog
+              <p className="text-[10px] font-sans font-bold tracking-[0.2em] text-azul-claro uppercase">
+                Dimensiones de Sabiduría
               </p>
             </div>
-            <p className="hidden sm:block text-[11px] font-sans text-azul-profundo/40">
-              Navega rápidamente a las distintas áreas de conocimiento
+            <h2 className="text-3xl md:text-4xl font-display text-azul-profundo leading-tight">
+              Explora las Áreas de Conocimiento
+            </h2>
+            <p className="font-serif text-sm md:text-base text-azul-profundo/60 max-w-xl mx-auto leading-relaxed">
+              Haz clic en cualquiera de las secciones para descender fluidamente hacia sus respectivas micro-cápsulas de sabiduría y evidencias científicas.
             </p>
           </div>
 
-          <nav className="flex gap-2 pb-4 overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-none">
+          <div className="flex flex-wrap justify-center gap-3 pt-4">
             {SECTIONS.map((s) => {
               const Icon = s.Icon
               return (
                 <a
                   key={s.key}
                   href={s.target}
-                  className="group shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-azul-profundo/[0.08] text-azul-profundo/65 hover:border-azul-claro/40 hover:text-azul-claro hover:bg-azul-claro/[0.01] transition-all duration-200 font-sans text-xs font-semibold hover:scale-[1.02]"
+                  className="group flex items-center gap-2.5 px-6 py-3 rounded-full bg-white border border-azul-profundo/[0.1] text-azul-profundo/75 hover:border-azul-claro hover:text-azul-claro hover:bg-azul-claro/[0.01] shadow-[0_4px_12px_rgba(15,42,68,0.02)] hover:shadow-[0_8px_20px_rgba(15,42,68,0.05)] hover:scale-[1.03] transition-all duration-300 font-sans text-xs font-semibold"
                 >
                   <Icon size={14} className="text-azul-profundo/45 group-hover:text-azul-claro transition-colors" />
+                  {s.label}
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Pestañas Sticky de Navegación Rápida (Slim Sticky Bar) ─── */}
+      <div className="bg-white/95 backdrop-blur-md border-b border-azul-profundo/[0.06] sticky top-16 z-20 transition-all duration-300 py-3.5">
+        <div className="container-site flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-azul-claro" />
+            <span className="text-[10px] font-sans font-bold tracking-wider text-azul-profundo/50 uppercase">
+              Navegación Rápida
+            </span>
+          </div>
+          <nav className="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-none">
+            {SECTIONS.map((s) => {
+              const Icon = s.Icon
+              return (
+                <a
+                  key={s.key}
+                  href={s.target}
+                  className="group shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-azul-profundo/[0.08] text-azul-profundo/65 hover:border-azul-claro/40 hover:text-azul-claro transition-all duration-200 font-sans text-[11px] font-semibold"
+                >
+                  <Icon size={12} className="text-azul-profundo/40 group-hover:text-azul-claro transition-colors" />
                   {s.label}
                 </a>
               )
