@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Compass, Microscope, Sparkles, Calendar, MessageSquare } from 'lucide-react'
+import { Compass, Microscope, Sparkles, Calendar } from 'lucide-react'
 import { HeroSecondary } from '@/components/sections/HeroSecondary'
 import { CTABand } from '@/components/sections/CTABand'
-import { articles, featuredArticle } from '@/lib/content/blog'
+import { Slider } from '@/components/sections/Slider'
+import { articles } from '@/lib/content/blog'
 import { CATEGORY_LABELS } from '@/lib/schemas'
 import { routes } from '@/lib/routes'
 import { formatDate } from '@/lib/utils'
@@ -17,13 +18,12 @@ export const metadata: Metadata = {
     'Artículos sobre Meditación Trascendental, ciencia y bienestar — evidencia, experiencias y actualidad.',
 }
 
-// ─── Subsecciones ─────────────────────────────────────────────────────────
+// ─── Subsecciones (Foro ocultado por ahora) ─────────────────────────────────
 const SECTIONS = [
   { key: 'todas',                  label: 'Todas',                     category: null as BlogCategory | null },
   { key: 'investigacion-cientifica', label: 'Investigación científica', category: 'investigacion-cientifica' as BlogCategory },
   { key: 'noticias-positivas',     label: 'Noticias positivas',        category: 'noticias-positivas' as BlogCategory },
   { key: 'actividades',            label: 'Actividades del centro',    category: 'actividades' as BlogCategory },
-  { key: 'foro',                   label: 'Foro',                      category: 'foro' as BlogCategory },
 ] as const
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -31,7 +31,6 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
   'investigacion-cientifica': Microscope,
   'noticias-positivas':      Sparkles,
   'actividades':             Calendar,
-  'foro':                    MessageSquare,
 }
 
 type SectionKey = typeof SECTIONS[number]['key']
@@ -42,15 +41,73 @@ interface BlogPageProps {
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const { seccion } = await searchParams
-  const activeKey: SectionKey = (SECTIONS.find(s => s.key === seccion)?.key ?? 'todas')
+  const activeKey: SectionKey = (SECTIONS.find(s => s.key === seccion)?.key ?? 'todas') as SectionKey
   const activeSection = SECTIONS.find(s => s.key === activeKey)!
 
   const filtered = activeSection.category === null
     ? articles
     : articles.filter(a => a.category === activeSection.category)
 
-  const featured = filtered.find(a => a.featured) ?? filtered[0]
-  const rest = featured ? filtered.filter(a => a.slug !== featured.slug) : []
+  // Mapeamos los artículos a la estructura esperada por el Slider
+  const slides = filtered.map((article) => ({
+    id: article.slug,
+    content: (
+      <div className="px-4 md:px-12 py-4 max-w-4xl mx-auto snap-start select-none">
+        {/* Cápsula de conocimiento - Diseño Premium sin link de navegación */}
+        <div className="bg-white rounded-[24px] overflow-hidden border border-azul-profundo/[0.08] 
+                        shadow-[0_16px_48px_rgba(15,42,68,0.06)] hover:shadow-[0_24px_64px_rgba(15,42,68,0.1)] 
+                        transition-all duration-500 grid grid-cols-1 md:grid-cols-2 min-h-[380px] md:min-h-[440px]
+                        group">
+          
+          {/* Lado izquierdo: Portada de la Cápsula */}
+          <div className="relative h-56 md:h-auto min-h-[240px] bg-beige overflow-hidden">
+            <Image
+              src={article.coverImage}
+              alt={article.title}
+              fill
+              className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+            {/* Gradiente sutil interno */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          </div>
+          
+          {/* Lado derecho: Cuerpo de la Cápsula */}
+          <div className="p-6 md:p-10 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-block bg-dorado/15 text-dorado font-sans text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                  {CATEGORY_LABELS[article.category]}
+                </span>
+                <span className="text-xs font-sans text-azul-profundo/45 font-medium">
+                  {formatDate(article.publishedAt)}
+                </span>
+              </div>
+              
+              <h3 className="text-xl md:text-2xl font-sans font-bold text-azul-profundo leading-snug tracking-tight">
+                {article.title}
+              </h3>
+              
+              <p className="font-serif text-sm md:text-base text-azul-profundo/75 leading-relaxed">
+                {article.excerpt}
+              </p>
+            </div>
+            
+            {/* Metadata inferior de la cápsula */}
+            <div className="mt-6 pt-4 border-t border-azul-profundo/[0.06] flex items-center justify-between">
+              <span className="text-[11px] font-sans text-azul-profundo/40 font-medium tracking-wide">
+                Cápsula de lectura · {article.readingTime} min
+              </span>
+              <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-dorado bg-dorado/5 px-2.5 py-1 rounded">
+                Completa
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }))
 
   return (
     <>
@@ -102,124 +159,83 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         </div>
       </div>
 
-      {/* ─── Foro placeholder ─── */}
-      {activeSection.category === 'foro' && (
-        <section className="section-y bg-beige">
-          <div className="container-site max-w-xl mx-auto text-center">
-            <div className="w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center mx-auto mb-6">
-              <MessageSquare size={28} className="text-dorado" />
+      {/* ─── Cabecera de Sección Dinámica con Video/Imagen de Portada en Assets ─── */}
+      <div className="relative h-[240px] md:h-[300px] overflow-hidden bg-azul-profundo flex items-center">
+        {activeKey === 'noticias-positivas' ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/images/blog/portada-noticias.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={
+              activeKey === 'actividades'
+                ? '/images/blog/portada-actividades.jpeg'
+                : activeKey === 'investigacion-cientifica'
+                ? '/images/mt-fondo-cerebro.jpeg'
+                : '/images/hero-blog.jpeg'
+            }
+            alt={activeSection.label}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+        {/* Filtro degradado premium */}
+        <div className="absolute inset-0 bg-gradient-to-r from-azul-profundo/90 via-azul-profundo/60 to-transparent" />
+        
+        {/* Contenido flotante */}
+        <div className="relative container-site text-white z-10">
+          <span className="inline-block bg-dorado text-azul-profundo text-[9px] font-sans font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-3 shadow-sm">
+            {activeSection.label}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display leading-tight text-white max-w-xl">
+            {activeKey === 'todas'
+              ? 'El Conocimiento Completo'
+              : activeKey === 'investigacion-cientifica'
+              ? 'Evidencia Científica de la Trascendencia'
+              : activeKey === 'noticias-positivas'
+              ? 'Noticias de Bienestar y Sueño'
+              : 'Actividades del Centro de MT'}
+          </h2>
+          <p className="mt-2 text-white/70 font-sans text-xs md:text-sm max-w-lg leading-relaxed">
+            {activeKey === 'todas'
+              ? 'Explora las micro-cápsulas de sabiduría de la Ciencia de la Inteligencia Creativa.'
+              : activeKey === 'investigacion-cientifica'
+              ? 'Descubrimientos clínicos y neurocientíficos sobre la salud cerebral y cardiovascular.'
+              : activeKey === 'noticias-positivas'
+              ? 'Historias de éxito, resiliencia y el impacto de un mejor descanso en el bienestar.'
+              : 'Eventos, retiros de residencia y novedades del Centro de Meditación Trascendental.'}
+          </p>
+        </div>
+      </div>
+
+      {/* ─── Contenedor del Carrusel de Píldoras / Cápsulas ─── */}
+      <section className="section-y bg-beige overflow-hidden">
+        <div className="container-site">
+          {slides.length > 0 ? (
+            <div className="py-2">
+              <Slider 
+                slides={slides} 
+                gradientFrom="beige"
+                lightGradient={true}
+                className="overflow-visible"
+              />
             </div>
-            <h2 className="text-3xl mb-4">Foro de la comunidad</h2>
-            <p className="font-sans text-azul-profundo/65 leading-relaxed">
-              El espacio de comunidad está en desarrollo. Próximamente podrás compartir
-              experiencias, hacer preguntas y conectar con otros practicantes de MT en Colombia.
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* ─── Actividades placeholder ─── */}
-      {activeSection.category === 'actividades' && (
-        <section className="section-y bg-beige">
-          <div className="container-site max-w-xl mx-auto text-center">
-            <h2 className="text-3xl mb-4">Actividades del Centro</h2>
-            <p className="font-sans text-azul-profundo/65 leading-relaxed">
-              Próximamente encontrarás aquí los reportes de actividades, eventos y programas
-              realizados por el Centro de Meditación Trascendental en Colombia.
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* ─── Artículo destacado ─── */}
-      {featured && activeSection.category !== 'foro' && activeSection.category !== 'actividades' && (
-        <section className="section-y bg-white">
-          <div className="container-site">
-            <Link
-              href={routes.blogPost(featured.slug)}
-              className="group flex flex-col md:flex-row gap-8 rounded-[var(--radius-card)]
-                         overflow-hidden shadow-card hover:shadow-lg transition-shadow"
-            >
-              <div className="relative h-56 md:h-auto md:w-1/2 shrink-0 bg-beige">
-                <Image
-                  src={featured.coverImage}
-                  alt={featured.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="flex flex-col justify-center p-6 md:p-8">
-                <span className="inline-block bg-dorado/10 text-dorado font-sans text-xs font-semibold
-                                 uppercase tracking-wider px-3 py-1 rounded-full mb-4 self-start">
-                  {CATEGORY_LABELS[featured.category]}
-                </span>
-                <h2 className="text-2xl md:text-3xl mb-3 group-hover:text-azul-claro transition-colors">
-                  {featured.title}
-                </h2>
-                <p className="font-serif text-azul-profundo/75 mb-4">{featured.excerpt}</p>
-                <p className="text-xs font-sans text-azul-profundo/50">
-                  {formatDate(featured.publishedAt)} · {featured.readingTime} min lectura
-                </p>
-              </div>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* ─── Grilla ─── */}
-      {rest.length > 0 && activeSection.category !== 'foro' && activeSection.category !== 'actividades' && (
-        <section className="section-y bg-beige">
-          <div className="container-site">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rest.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={routes.blogPost(article.slug)}
-                  className="group flex flex-col rounded-[var(--radius-card)] bg-white
-                             overflow-hidden shadow-card hover:shadow-lg transition-shadow"
-                >
-                  <div className="relative h-48 bg-beige overflow-hidden">
-                    <Image
-                      src={article.coverImage}
-                      alt={article.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                  <div className="flex flex-col flex-1 p-5">
-                    <span className="text-dorado font-sans text-xs font-semibold uppercase tracking-wider mb-2">
-                      {CATEGORY_LABELS[article.category]}
-                    </span>
-                    <h3 className="font-sans font-semibold text-azul-profundo mb-2 line-clamp-2
-                                   group-hover:text-azul-claro transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="font-serif text-sm text-azul-profundo/70 mb-4 line-clamp-3 flex-1">
-                      {article.excerpt}
-                    </p>
-                    <p className="text-xs font-sans text-azul-profundo/40">
-                      {formatDate(article.publishedAt)} · {article.readingTime} min
-                    </p>
-                  </div>
-                </Link>
-              ))}
+          ) : (
+            <div className="max-w-xl mx-auto text-center py-16">
+              <p className="font-sans text-azul-profundo/50 text-base leading-relaxed">
+                Próximamente habrá micro-cápsulas de conocimiento en esta sección.
+              </p>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Sin artículos */}
-      {filtered.length === 0 && activeSection.category !== 'foro' && activeSection.category !== 'actividades' && (
-        <section className="section-y bg-beige">
-          <div className="container-site text-center">
-            <p className="font-sans text-azul-profundo/50">
-              Próximamente habrá artículos en esta sección.
-            </p>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
       <CTABand />
     </>
