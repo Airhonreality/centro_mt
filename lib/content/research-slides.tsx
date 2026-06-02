@@ -99,7 +99,7 @@ export const researchSlides: SliderSlide[] = [
     content: (
       <div className="h-full flex flex-col overflow-y-auto">
         <div className="container-site py-6 my-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
             <div className="space-y-4">
               <p className="text-dorado font-sans font-semibold text-xs tracking-[0.15em] uppercase">
                 Evidencia científica por área
@@ -107,7 +107,7 @@ export const researchSlides: SliderSlide[] = [
               <h2 className="text-2xl md:text-3xl text-white">{area.title}</h2>
               <p className="font-sans text-white/65 leading-relaxed text-sm md:text-base">{area.body}</p>
             </div>
-            <div className="relative h-[200px] md:h-[280px] rounded-[16px] overflow-hidden
+            <div className="relative h-[160px] lg:h-[280px] rounded-[16px] overflow-hidden
                             shadow-[0_16px_48px_rgba(0,0,0,0.40)]">
               <Image
                 src={area.img}
@@ -154,7 +154,7 @@ export const researchSlidesLight: SliderSlide[] = [
     content: (
       <div className="h-full flex flex-col overflow-y-auto">
         <div className="container-site py-6 my-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
             <div className="space-y-4">
               <p className="text-dorado font-sans font-semibold text-xs tracking-[0.15em] uppercase">
                 Evidencia científica por área
@@ -162,7 +162,7 @@ export const researchSlidesLight: SliderSlide[] = [
               <h2 className="text-2xl md:text-3xl text-azul-profundo">{area.title}</h2>
               <p className="font-sans text-azul-profundo/65 leading-relaxed text-sm md:text-base">{area.body}</p>
             </div>
-            <div className="relative h-[200px] md:h-[280px] rounded-[16px] overflow-hidden
+            <div className="relative h-[160px] lg:h-[280px] rounded-[16px] overflow-hidden
                             shadow-[0_8px_32px_rgba(15,42,68,0.12)] bg-white">
               <Image
                 src={area.img}

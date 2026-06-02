@@ -221,7 +221,7 @@ export default function MTPage() {
             </div>
           </div>
         </div>
-        <div className="bg-white h-[70vh] max-h-[70vh] flex flex-col border-b border-azul-profundo/10">
+        <div className="bg-white min-h-[580px] sm:min-h-[520px] lg:min-h-0 lg:h-[70vh] lg:max-h-[70vh] flex flex-col border-b border-azul-profundo/10">
           <Slider
             slides={researchSlidesLight}
             gradientFrom="white"
