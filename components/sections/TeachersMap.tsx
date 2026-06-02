@@ -114,7 +114,7 @@ export function TeachersMap({ teachers }: TeachersMapProps) {
                 </div>
                 <div style="min-width:0;">
                   <p style="margin:0;font-family:system-ui,sans-serif;font-size:13px;font-weight:600;color:#0F2A44;line-height:1.2;">${t.name}</p>
-                  ${t.phone ? `<a href="tel:+57${t.phone.replace(/\s/g, '')}" style="margin:0;font-family:system-ui,sans-serif;font-size:11px;color:#C9A85D;text-decoration:none;">${t.phone}</a>` : ''}
+                  ${t.role ? `<p style="margin:2px 0 0 0;font-family:system-ui,sans-serif;font-size:11px;color:#0F2A44;opacity:0.6;">${t.role}</p>` : ''}
                 </div>
               </div>
             `

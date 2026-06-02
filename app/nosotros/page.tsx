@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Brain, Zap, TrendingUp, Smile, Award, MapPin, Phone } from 'lucide-react'
+import { Brain, Zap, TrendingUp, Smile, Award, MapPin } from 'lucide-react'
 import { HeroSecondary }      from '@/components/sections/HeroSecondary'
 import { CTABand }            from '@/components/sections/CTABand'
 import { TeachersMapClient }  from '@/components/sections/TeachersMapClient'
@@ -38,7 +38,7 @@ export default function NosotrosPage() {
         title="Fundación Maharishi de Colombia"
         subtitle="Desarrollando el pleno potencial humano desde 1973"
         breadcrumbs={[{ label: 'Nosotros' }]}
-        imageSrc="/images/nosotros-banner.jpeg"
+        imageSrc="/images/portada-equipo-nosotros.jpg"
       />
 
       {/* ─── 1. QUIÉNES SOMOS — Split editorial ─── */}
@@ -316,17 +316,7 @@ export default function NosotrosPage() {
                           </p>
                           <p className="font-sans text-xs text-azul-profundo/45 mt-0.5">{t.role}</p>
                         </div>
-                        {t.phone && (
-                          <a
-                            href={`tel:+57${t.phone.replace(/\s/g, '')}`}
-                            className="flex items-center gap-1.5 font-sans text-sm text-dorado
-                                       hover:text-azul-profundo transition-colors shrink-0"
-                            aria-label={`Llamar a ${t.name}`}
-                          >
-                            <Phone size={13} />
-                            <span className="hidden sm:inline">{t.phone}</span>
-                          </a>
-                        )}
+
                       </div>
                     )
                   })}
